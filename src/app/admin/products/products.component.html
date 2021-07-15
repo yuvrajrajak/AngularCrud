@@ -1,0 +1,32 @@
+<p>products works!</p>
+
+<div>
+  <button>
+  <p routerLink="/admin/products/create">Create Product</p>
+  </button>
+  <table>
+    <thead>
+      <tr>
+        <td>#ID</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Image</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td><img [src]="product.image" width="90" /></td>
+        <td>
+          <button (click)="onDelete(product.id)">Remove</button>
+          <button [routerLink]="['/admin/products/edit/', product.id]">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
